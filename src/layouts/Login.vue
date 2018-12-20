@@ -1,17 +1,17 @@
 <template>
   <div class="error-page window-height window-width bg-white column items-center no-wrap">
     <div class="error-code bg-primary flex items-center content-center justify-center">
-      MIDRC
+      MIRDC
     </div>
     <div>
       <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
 
         <p><h6>JOB ORDERING SYSTEM</h6>
-        <q-field  label="ID Number" icon="person"><q-input type="text" /></q-field>
-        <q-field   label="Password" icon="lock"><q-input type="password"  no-pass-toggle/></q-field>
+        <q-field  label="ID Number" icon="person"><q-input v-model="id_no" type="text" /></q-field>
+        <q-field   label="Password" icon="lock"><q-input type="password" v-model="password" no-pass-toggle/></q-field>
         <br>
          
-          <q-btn color="primary" width="200px" >
+          <q-btn color="primary" width="200px" v-on:click="login" >
             Login
           </q-btn>
         </p><br>
@@ -21,7 +21,48 @@
   </div>
 </template>
 
+<script>
+  import { Notify } from 'quasar'
+  export default {
+    data () {
+      return {
+        id_no: '1234',
+        password: '1234',
+        users: [
+        { id_no: '1234', password: '1234', user_type: 'MIS' },
+        { id_no: '2345', password: '2345', user_type: 'REQUESTER'},
+        { id_no: '3456', password: '3456', user_type: 'CHIEF'}
+        ]
+      }
+    },
+    methods : {
+      login: function () {
+        let current_id_no= this.id_no;
+        let current_password= this.password;
+        this.users.forEach(function(obj){
+         if(obj.id_no===current_id_no && obj.password===current_password){
+          Notify.create({
+            message: "You're now logged in!"+ obj.user_type,
+            type: 'positive',
+            position: 'top-right'
+          })
+          this.$q.notify()
+         }
+         else{
+           Notify.create({
+            message: "Invalid credentials!",
+            type: 'negative',
+            position: 'top-right'
+          })
+          this.$q.notify()
+         }
+        });
+    }
+    }
 
+  }
+   
+</script>
 <style lang="stylus">
 .error-page
   .error-code
