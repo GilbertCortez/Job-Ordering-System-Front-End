@@ -8,7 +8,7 @@
       </q-toolbar>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-fab color="primary"  icon="add" direction="left">
-        <q-btn color="blue" @click="opened=true" label="Technical Support" />
+        <q-btn color="blue" @click="modal_ts=true" label="Technical Support" />
         <q-btn color="blue" label="Software Development" />
         <q-btn color="blue" label="MIDRC Website" />
       </q-fab>
@@ -59,41 +59,26 @@
             </div>
          </q-modal-layout>
       </q-modal>
-      <div class="layout-padding">
-        <q-card inline class="bigger q-ma-sm" style="max-width: 350px" v-for="item in joborders" :key="item.joborderno">
-          <q-card-title class="relative-position">
-            <div class="ellipsis">{{item.joborderno}}</div>
-            <div slot="right" class="row items-center">
-              <q-icon name="info" /> Type:
-            </div>
-          </q-card-title>
-          <q-card-main>
-            <p><q-icon name="calendar_today" />・<font color="gray"> Date Filed: </font> December 13, 2018</p>
-            <p><q-icon name="person" />・<font color="gray"> Requester: </font>Gilbert Critica Cortez</p>
-            <p><q-icon name="place" />・<font color="gray"> Section/Division: </font>PMD-MIS</p>
-            <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.</p>
-          </q-card-main>
-          <q-card-separator />
-          <q-card-actions align="center">
-            <q-btn  icon="remove_red_eye" color="black">VIEW</q-btn>
-            <q-btn  icon="edit" color="primary">EDIT</q-btn>
-          </q-card-actions>
-        </q-card>
+      <div>
+      <JobOrderCards joborderno="JOB-1-01234"/>
       </div>
    </div>
 </template>
 <script>
+import JobOrderCards from './JobOrderCards.vue'
 export default {
+  components: {
+    JobOrderCards
+  },
   data () {
     return {
       text: '',
       area: '',
       firstname: '',
       lastname: '',
-      opened: false,
+      modal_ts: false, //technical support
+      modal_sd: false, //software development
+      modal_wm: false, //website modification
       select: '',
       options: [
         {

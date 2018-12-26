@@ -37,18 +37,28 @@
     },
     methods : {
       login: function () {
-        let current_id_no= this.id_no;
-        let current_password= this.password;
+        var current_id_no= this.id_no;
+        var current_password= this.password;
+        var found_user= [];
+
         this.users.forEach(function(obj){
-         if(obj.id_no===current_id_no && obj.password===current_password){
-          Notify.create({
-            message: "You're now logged in!"+ obj.user_type,
+        console.log(obj)
+          obj.id_no===current_id_no && obj.password=== current_password ? found_user=obj : null;
+        });
+
+        if(!( found_user.length == 0 )){
+          sessionStorage.setItem("logged_in_user", JSON.stringify(found_user));
+            Notify.create({
+            message: "You're now logged in!"+ found_user.user_type,
             type: 'positive',
             position: 'top-right'
           })
           this.$q.notify()
-         }
-         else{
+          if(found_user.user_type ==='MIS'){
+            window.location.href='/#/MIS/Dashboard'
+          }
+        }
+        else{
            Notify.create({
             message: "Invalid credentials!",
             type: 'negative',
@@ -56,12 +66,16 @@
           })
           this.$q.notify()
          }
-        });
+
     }
+    },
+    mounted () {
+      sessionStorage.removeItem("logged_in_user");
     }
 
   }
    
+
 </script>
 <style lang="stylus">
 .error-page
