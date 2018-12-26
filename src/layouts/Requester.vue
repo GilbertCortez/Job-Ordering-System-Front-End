@@ -45,11 +45,6 @@
           <q-item-main label="Job Order"/>
         </q-item>
         <div class="q-item-separator-component"></div>
-        <q-item to="/Requester/Track">
-          <q-item-side icon="timeline" />
-          <q-item-main label="Track" />
-        </q-item>
-        <div class="q-item-separator-component"></div>
         <q-item to="/Requester/Logout">
           <q-item-side icon="logout" />
           <q-item-main label="Signout" />

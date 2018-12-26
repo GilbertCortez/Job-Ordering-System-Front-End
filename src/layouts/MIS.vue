@@ -66,7 +66,7 @@
 
 <script>
 import { openURL } from 'quasar'
-
+import { Notify } from 'quasar'
 export default {
   name: 'MyLayout',
   data () {
@@ -78,6 +78,15 @@ export default {
     openURL
   },
   mounted () {
+    if(sessionStorage.length==0){
+      Notify.create({
+            message: "Please Log In First!",
+            type: 'negative',
+            position: 'top-right'
+          })
+          this.$q.notify()
+      window.location.href="/#/"
+    }
     //AUTHENTICATE HERE
     this.$dbCon.services.joborders.onDataChange(data => { // the function where the magic happen
       this.arrayCollection = data // mutate your state. for ReactJS use setState
