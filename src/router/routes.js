@@ -2,10 +2,15 @@ const routes = [
   { path: '', component: () => import('layouts/Login.vue')},
   { path: '/Requester', component: () => import('layouts/Requester.vue'),
     children: [
-      { path: 'RequestNewJob', component: () => import('pages/Requester/RequestNewJob.vue') },
-      { path: 'Dashboard', component: () => import('pages/Requester/Dashboard.vue') },
-      { path: 'JobOrder', component: () => import('pages/Requester/JobOrder.vue'), },
-      { path: 'Track', component: () => import('pages/Requester/Track.vue') }
+      { path: 'Dashboard', component: () => import('pages/Requester/Dashboard/Dashboard.vue') },
+      { path: 'JobOrder', component: () => import('pages/Requester/JobOrder/JobOrder.vue'), },
+      { path: 'NewJobOrder', component: () =>import('pages/Requester/JobOrder/NewJobOrder.vue'), children: [
+        { path: 'Information', component: () => import('pages/Requester/JobOrder/Information.vue')},
+        { path: 'TechnicalSupport', component: () => import('pages/Requester/JobOrder/Form/TechnicalSupport.vue')},
+        { path: 'SoftwareDevelopment', component: () => import('pages/Requester/JobOrder/Form/SoftwareDevelopment.vue')},
+        { path: 'WebsiteModification', component: () => import('pages/Requester/JobOrder/Form/WebsiteModification.vue')}
+        ]
+      }
     ]
   },
   { path: '/Chief', component: () => import('layouts/Chief.vue')

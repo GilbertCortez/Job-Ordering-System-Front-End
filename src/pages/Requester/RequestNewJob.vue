@@ -1,11 +1,5 @@
 <template>
    <div>
-    <q-toolbar color="white">
-    <q-breadcrumbs>
-      <q-breadcrumbs-el label="Job Order" icon="person" />
-      <q-breadcrumbs-el label="Request New Service" icon="widgets" />
-    </q-breadcrumbs>
-      </q-toolbar>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-btn
         size="20px"

@@ -71,7 +71,8 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+      leftDrawerOpen: this.$q.platform.is.desktop,
+      joborders: []
     }
   },
   methods: {
@@ -88,9 +89,10 @@ export default {
       window.location.href="/#/"
     }
     //AUTHENTICATE HERE
-    this.$dbCon.services.joborders.onDataChange(data => { // the function where the magic happen
-      this.arrayCollection = data // mutate your state. for ReactJS use setState
-    })
+   // this.joborders = this.$dbCon.services.joborders.data
+    // this.$dbCon.services.joborders.onDataChange(data => {
+    //   this.joborders = data 
+    // })
   }
 }
 </script>

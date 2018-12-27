@@ -42,10 +42,15 @@
         <div class="q-item-separator-component"></div>
         <q-item to="/Requester/JobOrder">
           <q-item-side icon="person" />
-          <q-item-main label="Job Order"/>
+          <q-item-main label="Job Orders"/>
         </q-item>
         <div class="q-item-separator-component"></div>
-        <q-item to="/Requester/Logout">
+        <q-item to="/Requester/NewJobOrder/Information">
+          <q-item-side icon="add" />
+          <q-item-main label="New Job Order"/>
+        </q-item>
+        <div class="q-item-separator-component"></div>
+        <q-item to="/#/">
           <q-item-side icon="logout" />
           <q-item-main label="Signout" />
         </q-item>
@@ -59,6 +64,7 @@
 </template>
 
 <script>
+
 import { openURL } from 'quasar'
 
 export default {
@@ -73,9 +79,9 @@ export default {
   },
   mounted () {
     //AUTHENTICATE HERE
-    this.$dbCon.services.joborders.onDataChange(data => { // the function where the magic happen
-      this.arrayCollection = data // mutate your state. for ReactJS use setState
-    })
+    // this.$dbCon.services.joborders.onDataChange(data => { // the function where the magic happen
+    //   this.arrayCollection = data // mutate your state. for ReactJS use setState
+    // })
   }
 }
 </script>

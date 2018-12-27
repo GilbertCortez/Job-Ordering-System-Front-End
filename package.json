@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "vue-swal": "^1.0.0",
+    "vuelidate": "^0.7.4",
     "wings-feathers": "^2.0.24"
   },
   "devDependencies": {
