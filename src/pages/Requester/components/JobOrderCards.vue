@@ -1,6 +1,6 @@
 <template>
-<div class="layout-padding">
-        <q-card inline class="bigger q-ma-sm" style="max-width: 350px">
+<div >
+        <q-card inline class="" style="max-width: 350px">
           <q-card-title class="relative-position">
             <div class="ellipsis">{{joborderno}}</div>
             <div slot="right" class="row items-center">

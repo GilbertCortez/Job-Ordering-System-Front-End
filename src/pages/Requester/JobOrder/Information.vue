@@ -13,12 +13,7 @@
                <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             </q-card-main>
-            <q-card-separator />
-            <div class="float-right">
-               <q-card-actions >
-                  <q-btn flat color="primary" @click="$router.push('/Requester/NewJobOrder/TechnicalSupport')">REQUEST</q-btn>
-               </q-card-actions>
-            </div>
+         
          </q-card><br><br><br>
          <q-card inline class="bigger q-ma-sm">
             <q-card-media>
@@ -32,12 +27,7 @@
                <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             </q-card-main>
-            <q-card-separator />
-            <div class="float-right">
-               <q-card-actions >
-                  <q-btn flat color="primary" @click="$router.push('/Requester/NewJobOrder/SoftwareDevelopment')">REQUEST</q-btn>
-               </q-card-actions>
-            </div>
+          
          </q-card><br><br><br>
          <q-card inline class="bigger q-ma-sm">
             <q-card-media>
@@ -51,12 +41,6 @@
                <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             </q-card-main>
-            <q-card-separator />
-            <div class="float-right">
-               <q-card-actions >
-                  <q-btn flat color="primary" @click="$router.push('/Requester/NewJobOrder/WebsiteModification')">REQUEST</q-btn>
-               </q-card-actions>
-            </div>
          </q-card>
       </div>
       <div class="col-1" />

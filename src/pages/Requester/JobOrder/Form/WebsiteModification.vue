@@ -87,8 +87,3 @@
       }
     }
 </script>
-<style>
-  .swal-overlay {
-  background-color: #1E88E5;
-}
-</style>
