@@ -5,7 +5,7 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'axios',
-     // 'dbCon',
+      'dbCon',
      'vuelidate'
     ],
     css: [

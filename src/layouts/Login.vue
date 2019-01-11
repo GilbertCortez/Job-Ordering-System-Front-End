@@ -11,9 +11,9 @@
         <q-field   label="Password" icon="lock"><q-input type="password" v-model="password" no-pass-toggle/></q-field>
         <br>
          
-          <q-btn color="primary" width="200px" v-on:click="login" >
-            Login
-          </q-btn>
+            <q-btn color="primary" width="200px" v-on:click="login" >
+              Login
+            </q-btn>
         </p><br>
     	<p><i>powered by Single Sign-on System</i></p>
       </div>
@@ -22,16 +22,18 @@
 </template>
 
 <script>
+  import {  LocalStorage } from 'quasar'
   import { Notify } from 'quasar'
   export default {
     data () {
       return {
-        id_no: '1234',
-        password: '1234',
+        id_no: '2345',
+        password: '2345',
         users: [
         { id_no: '1234', password: '1234', user_type: 'MIS' },
         { id_no: '2345', password: '2345', user_type: 'REQUESTER'},
-        { id_no: '3456', password: '3456', user_type: 'CHIEF'}
+        { id_no: '3456', password: '3456', user_type: 'REQUESTER'},
+        { id_no: '4567', password: '4567', user_type: 'CHIEF'}
         ]
       }
     },
@@ -47,15 +49,18 @@
         });
 
         if(!( found_user.length == 0 )){
-          sessionStorage.setItem("logged_in_user", JSON.stringify(found_user));
+            LocalStorage.set("logged_in_user",  JSON.stringify(found_user))
             Notify.create({
-            message: "You're now logged in!"+ found_user.user_type,
+            message: "You're now logged in!",
             type: 'positive',
             position: 'top-right'
           })
           this.$q.notify()
           if(found_user.user_type ==='MIS'){
             window.location.href='/#/MIS/Dashboard'
+          }
+          else if(found_user.user_type ==='REQUESTER'){
+            window.location.href='/#/Requester/Dashboard'
           }
         }
         else{
@@ -70,7 +75,8 @@
     }
     },
     mounted () {
-      sessionStorage.removeItem("logged_in_user");
+ 
+      LocalStorage.remove("logged_in_user");
     }
 
   }

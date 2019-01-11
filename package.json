@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "sort-json-array": "^0.1.7",
     "vue-morris": "0.0.13",
     "vue-swal": "^1.0.0",
     "vuelidate": "^0.7.4",
